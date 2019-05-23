@@ -5,27 +5,109 @@
 ########################
 ## List Comprehensions
 ########################
+# List compressions help to transform a list into another list by
+# choosing only certain elements
+
+# Pythonic way is to use list Comprehensions
+even_numbers = [x for x in range(5) if x % 2 == 0]
+print(even_numbers)
+
+squares = [x * x for x in range(5)]
+print(squares)
+
+even_squares = [x * x for x in even_numbers]
+print(even_squares)
+
+# Also doing it over dicts and Sets
+square_dict = {x: x * x for x in range(5)}
+print(square_dict)
+
+square_set = {x * x for x in [-1,1]} # New way of doing range in Python [-1,1]
+print(square_set)
+
+# What is the diffence between not needing value from list and empty lists
+zeros_1 = [0 for _ in even_numbers]
+print(zeros_1)
+
+zeros_2 = []
+print(zeros_2)
+
+# List compression with multiple fors:
+pairs = [(x,y)
+         for x in range(10)
+         for y in range(10)]
+
+print(pairs)
+
+# List compression using earlier for
+increasing_pairs = [(x,y)                   # only pairs with x < y
+                    for x in range(10)      # range(lo,hi) equals
+                    for y in range(x+1,10)] # [lo,lo+1, ..., hi-1]
+
+print(increasing_pairs)
 
 
 ##################
 ## Sorting
 ##################
+x = [-4, 1, -2, 3]
+y = sorted(x)
+print(y) # This way the initial list is unchanged
 
+# One of the best ways to sort elements form largest to smalltest,
+# you can specify reverse=True
+
+# sort the list by absolute value from largest to smallest
+x = sorted([-4, 1, -2, 3], key=abs, reverse=True)  # is [-4, 3, -2, 1]
+# sort the words and counts from highest count to lowest
+wc = sorted(word_counts.items(), # This is more readable
+            key=lambda word_and_count: word_and_count[1],
+            reverse=True)
 
 ##################
 ## Truthiness
 ##################
+# Python allows to use any value where it expects a Boolean, such as the following:
+# False
+# None
+# [] (an empty list)
+# {} (an empty dict)
+# ""
+# set()
+# 0
+# 0.0
+
+# Everything else is treated as False, however, the pythonic way should be more readable
+# Option 1:
+safe_x = x or 0
+# Option 2:
+safe_x = x if x is not None else 0
+
+# All function of python, which takes an iterable (List) and returns True precisely when
+# every element is truthy, and an any function, which returns True when at leat one element is truthy
+
+# For example:
+first_ask = all([True,1, {3}]) # True, all are truthy
+print(first_ask)
+
+second_ask = all([True,1,{}]) # False, {} is falsy
+print(second_ask)
+
+third_ask = any([True,1,{}]) # Similary to or, True, True is truthy
+print(third_ask)
+
+fourth_ask = all([]) # True, no falsy elements in the lists
+print(fourth_ask)
+
+fifth_ask = any([]) # False, no truthy elements in the List
+print(fifth_ask)
 
 # Python uses the value None to indicate a nonexisten value. Similar to other
 # languages's null
 x = None
-
-
 # Booleans in python are Capitalized
 true_equals_false = True == False
 print(true_equals_false)
-
-
 
 ##################
 ## Control Flow
