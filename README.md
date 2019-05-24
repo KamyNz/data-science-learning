@@ -1,7 +1,7 @@
 # data-science-learning
-Repository of learning from Joel Grus book denominated Data Science from Scratch
+Repository for learning and reforzing my data science skills using Joel Grus book denominated Data Science from Scratch
 
-Note: I will reading and understanding the chapters according to predefined order created by me. 
+Note: I will reading and understanding the chapters according to a predefined order created by me. 
 
 ## There are folders by chapters in the book:
 
