@@ -19,7 +19,7 @@ def init():
     #base_folder = os.path.dirname(__file__)
     #print(base_folder)
 
-    base_folder = "/home/asisbio2/Documents/data-science-learning/studying_for_caoba/weather_csv_demo/"
+    base_folder = "/home/asisbio2/Documents/data-science-learning/studying_for_caoba/01_weather_csv_demo/"
 
     # getting file name after path
     file_name = os.path.join(base_folder,"data","seattle.csv")
